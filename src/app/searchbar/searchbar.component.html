@@ -1,0 +1,8 @@
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" placeholder="Enter youtube search term" class="form-control" [(ngModel)]="term">
+  </div>
+    <button class="btn btn-primary" (click)="onSubmit()" >Search</button>
+</div>
+<hr>
+<p>{{term}}</p>
