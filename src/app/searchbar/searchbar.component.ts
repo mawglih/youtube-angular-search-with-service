@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input  } from '@angular/core';
 
 @Component({
   selector: 'app-searchbar',
@@ -6,18 +6,20 @@ import { Component, OnInit  } from '@angular/core';
   styleUrls: ['./searchbar.component.css']
 })
 export class SearchbarComponent implements OnInit {
-  term: string = '';
+  @Input() newTerm = '';
+  @Output() receivedData = new EventEmitter<{term:string}>();
   
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log(this.term)
-    return this.term;
+  onSubmit(searchTerm: HTMLInputElement) {
+    // console.log('searchTerm ', searchTerm.value);
+    // console.log('searchbar: ',this.newTerm)
+    this.receivedData.emit({term:searchTerm.value});
   }
   onUpdateTerm(event: Event) {
-    this.term = (<HTMLInputElement>event.target).value;
+    this.newTerm = (<HTMLInputElement>event.target).value;
   }
 }

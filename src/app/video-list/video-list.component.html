@@ -1,0 +1,5 @@
+<div class="col-sm-8 list-styles">
+    <ul  class="list-group">
+    <app-video-item *ngFor="let vid of videos" [video]="vid" (selectedVideo)="onVideoSelect(vid)"></app-video-item>
+</ul>
+</div>

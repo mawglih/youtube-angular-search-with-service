@@ -1,3 +1,7 @@
 <div class="container">
-  <app-searchbar></app-searchbar>
+  <app-header></app-header>
+  <app-searchbar (receivedData)="handleSearch($event)"></app-searchbar>
+  <hr>
+  <app-video-details [selectedVideo]="selectedVideo"></app-video-details>
+  <app-video-list [videos]="arrayOfVideos" (videoWasSelected)="selectedVideo=$event"></app-video-list>
 </div>
